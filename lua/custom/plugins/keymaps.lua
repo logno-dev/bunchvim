@@ -58,6 +58,16 @@ vim.keymap.set('n', '<leader>0', function()
   harpoon:list():select(0)
 end, { desc = 'Navigate to harpoon item 0' })
 
+-- [[ Basic Keymaps ]]
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- [[ Terminal ]]
 vim.keymap.set('n', '<leader>t', ':ToggleTerm<cr>', { desc = 'Toggle Terminal' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
