@@ -33,22 +33,7 @@ return {
       require('mini.surround').setup()
     end,
   },
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
 
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
   {
     'stevearc/conform.nvim',
     opts = {
@@ -162,5 +147,31 @@ return {
         desc = 'Quickfix List (Trouble)',
       },
     },
+  },
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup {
+        org_agenda_files = '~/notes.wiki/**/*',
+        org_default_notes_file = '~/notes.wiki/general.org',
+        win_split_mode = 'float',
+        org_agenda_window = {
+          win_split_mode = 'float',
+        },
+        mappings = {
+          org_return_uses_meta_return = true,
+        },
+      }
+
+      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+      -- add ~org~ to ignore_install
+      -- require('nvim-treesitter.configs').setup({
+      --   ensure_installed = 'all',
+      --   ignore_install = { 'org' },
+      -- })
+    end,
   },
 }

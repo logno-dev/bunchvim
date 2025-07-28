@@ -77,4 +77,16 @@ vim.keymap.set('n', '[b', ':bprevious<cr>', {})
 vim.keymap.set('n', ']b', ':bnext<cr>', {})
 vim.keymap.set('n', '<leader>db', ':bdelete<cr>', { desc = 'delete current buffer' })
 
+-- Save file with Ctrl-S
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save file' })
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>', { desc = 'Save file from insert mode' })
+
+-- Save and quit with Ctrl-c
+vim.keymap.set('n', '<C-c>', ':wq<CR>', { desc = 'Save and quit' })
+vim.keymap.set('i', '<C-c>', '<Esc>:wq<CR>', { desc = 'Save and quit from insert mode' })
+
+-- Close without saving
+vim.keymap.set('n', '<C-z>', ':qa!<CR>', { desc = 'Quit!' })
+vim.keymap.set('i', '<C-z>', '<Esc>:qa!<CR>', { desc = 'Quit! from insert mode' })
+
 return {}
