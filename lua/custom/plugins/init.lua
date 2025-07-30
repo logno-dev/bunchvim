@@ -180,7 +180,8 @@ return {
     ft = { 'markdown', 'mdx' },
     config = function()
       require('header-level').setup {
-        show_virtual_text = true, -- Show level as virtual text at end of line
+        show_virtual_text = false, -- Show level as virtual text at end of line
+        show_header_tree = true,
         virtual_text_position = 'fixed_corner',
         inverted_colors = true,
       }
