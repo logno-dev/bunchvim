@@ -174,4 +174,16 @@ return {
       -- })
     end,
   },
+  {
+    'logno-dev/header-level.nvim',
+    name = 'header-level',
+    ft = { 'markdown', 'mdx' },
+    config = function()
+      require('header-level').setup {
+        enabled = true,
+        show_virtual_text = true, -- Show level as virtual text at end of line
+        update_events = { 'CursorMoved', 'CursorMovedI', 'BufEnter' },
+      }
+    end,
+  },
 }
